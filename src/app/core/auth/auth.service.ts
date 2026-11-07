@@ -2,6 +2,7 @@ import { inject, Injectable, signal, Signal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { LoginResponse } from './auth.models';
 import { HttpClient } from '@angular/common/http';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class AuthService {
   private readonly apiUrl = 'https://dummyjson.com/auth';
 
   private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
 
   readonly isAuthenticated = signal(false);
   readonly authToken = signal<string | null>(null);
@@ -23,7 +25,9 @@ export class AuthService {
   }
 
   logout() {
+    this.authToken.set(null);
     this.isAuthenticated.set(false);
+    this.router.navigate(['/login']);
   }
 
 }

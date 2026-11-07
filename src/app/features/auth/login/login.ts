@@ -10,14 +10,14 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './login.scss',
   templateUrl: './login.html',
 })
-export class LoginComponent {
+export class Login {
   private readonly fb = inject(FormBuilder);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
   protected readonly form = this.fb.nonNullable.group({
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+    username: ['emilys', [Validators.required]],
+    password: ['emilyspass', [Validators.required]],
   });
 
   async login() {
