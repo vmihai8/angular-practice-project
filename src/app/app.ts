@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import {MainLayout} from "./layout/main-layout/main-layout";
-import {RouterOutlet} from "@angular/router";
+import { MainLayout } from './layout/main-layout/main-layout';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   imports: [MainLayout, RouterOutlet],
