@@ -1,1 +1,31 @@
-<p>rendering works!</p>
+@if (topic(); as topic) {
+<app-topic-layout [topic]="topic">
+  <div demonstration>
+    <div class="flex justify-between">
+      <div>
+        <p class="text-2xl font-bold mb-4">Lifecycle</p>
+        <ul>
+          @for (log of lifecycleLogs(); track $index) {
+          <li>{{log}}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="flex flex-col">
+        <p class="text-2xl font-bold mb-4">Rendering</p>
+        <button class="bg-blue-400 p-2 rounded w-30" (click)="displayText.set(!displayText())">
+          {{displayText() ? 'Hide text' : 'Display text'}}
+        </button>
+
+        @if (displayText()) {
+        <span>displayed hidden text using &#64;if</span>
+        }
+        <span [hidden]="!displayText()">displayed hidden text using hidden</span>
+        <span [style.display]="displayText() ? 'inline' : 'none'">
+          Displayed hidden text using display: none
+        </span>
+      </div>
+    </div>
+  </div>
+</app-topic-layout>
+}

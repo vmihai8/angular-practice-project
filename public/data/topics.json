@@ -1,0 +1,10 @@
+{
+  "rendering": {
+    "title": "01 Rendering and Lifecycle",
+    "theory": "<ol><li><strong>constructor:</strong> Runs when the component is created. Not an Angular lifecycle hook.</li><li><strong>ngOnChanges:</strong> Runs when component inputs change.</li><li><strong>ngOnInit:</strong> Runs once when the component initializes.</li><li><strong>ngDoCheck:</strong> Runs during change detection.</li><li><strong>ngAfterContentInit:</strong> Runs once after projected content initializes.</li><li><strong>ngAfterContentChecked:</strong> Runs when projected content is checked.</li><li><strong>ngAfterViewInit:</strong> Runs once after the component view initializes.</li><li><strong>ngAfterViewChecked:</strong> Runs when the component view is checked.</li><li><strong>ngOnDestroy:</strong> Runs before the component is destroyed.</li><li><strong>@if:</strong> Creates or destroys a component based on a condition. Its local state resets when recreated.</li><li><strong>[hidden]:</strong> Hides an element without destroying its component. Its state is preserved.</li><li><strong>display: none:</strong> Hides an element using CSS without removing it from the DOM. Its component state is preserved.</li></ol>"
+  },
+  "signals": {
+    "title": "02 Signals",
+    "theory": "<div class=\"flex flex-col gap-4\"><h3 class=\"text-lg font-semibold\">What are Signals?</h3><p>Signals are reactive values that notify Angular when their state changes.</p><ul class=\"list-disc pl-5\"><li><strong>signal():</strong> Writable reactive state.</li><li><strong>computed():</strong> Derived reactive values.</li><li><strong>effect():</strong> Reactive side effects.</li></ul></div>"
+  }
+}

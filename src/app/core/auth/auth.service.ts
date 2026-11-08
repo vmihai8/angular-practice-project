@@ -2,7 +2,7 @@ import { inject, Injectable, signal, Signal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { LoginResponse } from './auth.models';
 import { HttpClient } from '@angular/common/http';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,20 +14,17 @@ export class AuthService {
   private readonly router = inject(Router);
 
   readonly isAuthenticated = signal(false);
-  readonly authToken = signal<string | null>(null);
 
   login(username: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, {username, password})
-      .pipe(
-        tap((response: LoginResponse) => this.authToken.set(response.accessToken)),
-        tap(() => this.isAuthenticated.set(true))
-      );
+    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, { username, password }).pipe(
+      tap((response: LoginResponse) => localStorage.setItem('authToken', response.accessToken)),
+      tap(() => this.isAuthenticated.set(true))
+    );
   }
 
   logout() {
-    this.authToken.set(null);
+    localStorage.removeItem('authToken');
     this.isAuthenticated.set(false);
     this.router.navigate(['/login']);
   }
-
 }

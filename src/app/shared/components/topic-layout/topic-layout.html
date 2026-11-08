@@ -1,0 +1,19 @@
+<div class="h-full min-h-0 overflow-y-auto">
+  <div class="flex flex-col gap-6 max-w-5xl mx-auto p-6">
+    <header>
+      <h1 class="text-3xl font-bold">{{ topic().title }}</h1>
+    </header>
+
+    <section class="border border-gray-300 rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-6">Theory</h2>
+
+      <div [innerHTML]="topic().theory"></div>
+    </section>
+
+    <section class="border border-gray-300 rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Demonstration</h2>
+
+      <ng-content select="[demonstration]" />
+    </section>
+  </div>
+</div>
