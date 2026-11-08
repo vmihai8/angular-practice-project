@@ -1,1 +1,10 @@
-<p>signals works!</p>
+@if (topic(); as topic) {
+<app-topic-layout [topic]="topic">
+  <div demonstration class="flex flex-col">
+    <app-button text="Count" (onClick)="count()"></app-button>
+    <span>Counter: {{counter()}}</span>
+    <span>Double counter: {{doubleCounter()}}</span>
+    <span>Effect: {{counterClicked()}}</span>
+  </div>
+</app-topic-layout>
+}

@@ -14,9 +14,10 @@ import {
 import { TopicLayout } from '../../shared/components/topic-layout/topic-layout';
 import { TopicService } from '../../shared/services/topic.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { Button } from '../../shared/components/button/button';
 
 @Component({
-  imports: [TopicLayout],
+  imports: [TopicLayout, Button],
   selector: 'app-rendering',
   styleUrl: './rendering.scss',
   templateUrl: './rendering.html',
