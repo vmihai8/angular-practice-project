@@ -1,0 +1,14 @@
+<p class="text-sm">Counter from service: <strong>{{ counter.count() }}</strong></p>
+
+<div class="space-y-2">
+  <label class="flex items-center gap-2">
+    <input
+      type="checkbox"
+      [checked]="checked()"
+      (change)="checked.set($any($event.target).checked)"
+    />
+    Check me
+  </label>
+
+  <p class="text-sm">Checkbox is {{ checked() ? 'checked' : 'unchecked' }}</p>
+</div>

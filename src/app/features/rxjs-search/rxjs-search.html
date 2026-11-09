@@ -1,1 +1,15 @@
-<p>rxjs-search works!</p>
+@if (topic(); as topic) {
+<app-topic-layout [topic]="topic">
+  <div demonstration>
+    <app-input placeholder="Search people..." (valueChange)="search.setValue($event)" />
+
+    <ul>
+      @for (person of people$ | async; track person.id) {
+      <li>{{person.name}}</li>
+      } @empty {
+      <li>No people found</li>
+      }
+    </ul>
+  </div>
+</app-topic-layout>
+}

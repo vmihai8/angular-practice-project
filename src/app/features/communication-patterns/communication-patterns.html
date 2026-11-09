@@ -1,1 +1,15 @@
-<p>communication-patterns works!</p>
+@if (topic(); as topic) {
+<app-topic-layout [topic]="topic">
+  <div demonstration>
+    <div class="space-y-5 p-4">
+      <div class="space-y-3">
+        <app-button (click)="counter.increment()" text="Increment counter"> </app-button>
+
+        <app-child-component [(checked)]="checked" />
+
+        <p class="text-sm">Parent checked: {{ checked() }}</p>
+      </div>
+    </div>
+  </div>
+</app-topic-layout>
+}

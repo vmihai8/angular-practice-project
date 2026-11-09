@@ -1,1 +1,21 @@
-<p>interop works!</p>
+@if (topic(); as topic) {
+<app-topic-layout [topic]="topic">
+  <div demonstration>
+    <h2>BehaviorSubject Counter</h2>
+
+    <p>BehaviorSubject: {{ subjectCounter | async }}</p>
+    <p>Converted to Signal: {{ convertedSignal() }}</p>
+
+    <app-button [text]="'Increment Subject'" (onClick)="incrementSubject()"></app-button>
+
+    <hr />
+
+    <h2>Signal Counter</h2>
+
+    <p>Signal: {{ signalCounter() }}</p>
+    <p>Converted to Observable: {{ convertedObservable$ | async }}</p>
+
+    <app-button [text]="'Increment Signal'" (onClick)="incrementSignal()"></app-button>
+  </div>
+</app-topic-layout>
+}
